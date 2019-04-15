@@ -4,12 +4,20 @@
 # Author: sphinx
 # website:www.naijacodex.tk
 
-echo 'this is a multipurpose script
-[1] git status
-[2] add all files
-[3] commit
-[4] push to repo
-[5] synchronize repository'
+echo '-------------------------------------------
+SELECT AN ITEM FROM THE MENU
+[1]  git status
+[2]  add all files
+[3]  commit
+[4]  push to repo
+[5]  synchronize repository
+[6]  show remotes
+[7]  add remote
+[8]  show branches
+[9]  add a branch
+[10] checkout a branch
+[11] delete a branch
+--------------------------------------------'
 
 read -p 'CHOOSE A NUMBER:' choice;
 
@@ -38,4 +46,33 @@ read -p 'Upstream remote name:' upstream
 read -p 'current branch:' branch
 git fetch $upstream
 git pull $upstream $branch;
+fi
+
+if [ $choice == 6 ] ; then
+git remote -v;
+fi
+
+if [ $choice == 7 ] ; then
+read -p 'Enter remote name: ' name
+read -p 'Enter remote url: ' url
+git remote add $name $url;
+fi
+
+if [ $choice == 8 ] ; then
+git branch;
+fi
+
+if [ $choice == 9 ] ; then
+read -p 'Enter branch name to create: ' name
+git branch $name;
+fi
+
+if [ $choice == 10 ] ; then
+read -p 'Enter branch name to checkout: ' name
+git checkout $name;
+fi
+
+if [ $choice == 11 ] ; then
+read -p 'Enter branch name to delete: ' name
+git branch -D $name;
 fi
