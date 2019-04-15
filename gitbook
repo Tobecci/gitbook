@@ -27,35 +27,36 @@ echo -e "${BY}"
 read -p "CHOOSE A NUMBER:" choice;
 echo -e "${NC}"
 
-if [ $choice == 1 ] ; then
+if [ $choice == 1 ]
+then
 clear
 git status
-question;
-fi
+question
 
-if [ $choice == 2 ] ; then
+elif [ $choice == 2 ]
+then
 clear
 git add --all
 git status
-question;
-fi
+question
 
-if [ $choice == 3 ] ; then
+elif [ $choice == 3 ]
+then
 clear
 read -p 'Enter commit message: ' msg
 git commit -m "$msg"
-question;
-fi
+question
 
-if [ $choice == 4 ] ; then
+elif [ $choice == 4 ]
+then
 clear
 read -p 'remote name:' remote
 read -p 'branch on the remote:' branch
 git push $remote $branch
-question;
-fi
+question
 
-if [ $choice == 5 ] ; then
+elif [ $choice == 5 ]
+then
 clear
 echo "MAKE SURE YOU ARE ON THE BRANCH THAT IS TO BE SYNCHRONIZED"
 git branch
@@ -63,52 +64,56 @@ read -p 'Upstream remote name:' upstream
 read -p 'branch to be synchronized with:' branch
 git fetch $upstream
 git pull $upstream $branch
-question;
-fi
+question
 
-if [ $choice == 6 ] ; then
+elif [ $choice == 6 ]
+then
 clear
 git remote -v
-question;
-fi
+question
 
-if [ $choice == 7 ] ; then
+elif [ $choice == 7 ]
+then
 clear
 read -p 'Enter remote name: ' name
 read -p 'Enter remote url: ' url
 git remote add $name $url
-question;
-fi
+question
 
-if [ $choice == 8 ] ; then
+elif [ $choice == 8 ]
+then
 clear
 git branch
-question;
-fi
+question
 
-if [ $choice == 9 ] ; then
+elif [ $choice == 9 ]
+then
 clear
 git branch
 echo 'above are the branches existing'
 read -p 'Enter branch name to create: ' name
 git branch $name
-question;
-fi
+question
 
-if [ $choice == 10 ] ; then
+elif [ $choice == 10 ]
+then
 clear
 git branch
 read -p 'which branch above do you want to checkout: ' name
 git checkout $name
-question;
-fi
+question
 
-if [ $choice == 11 ] ; then
+elif [ $choice == 11 ]
+then
 clear
 git branch
 read -p 'which branch above do you want to delete: ' name
 git branch -D $name
-question;
+question
+
+else
+echo -e "${RED}unknown option try again${NC}"
+menu
 fi
 }
 
@@ -117,17 +122,19 @@ echo -e "${BY}"
 read -p 'anything else? (y/n): ' choice
 echo -e "${NC}"
 
-if [ $choice == y -o $choice == Y ] ; then
-menu;
-fi
+if [ $choice == y -o $choice == Y ]
+then
+menu
 
-if [ $choice == n  -o $choice == N ] ; then
+elif [ $choice == n  -o $choice == N ]
+then
 echo -e "${RED}exiting${NC}";
 exit
-fi
 
+else
 echo 'option not recognized'
 question
+fi
 }
 
 #calls the function defined above
