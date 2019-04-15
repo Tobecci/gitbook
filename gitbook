@@ -22,26 +22,31 @@ SELECT AN ITEM FROM THE MENU
 read -p 'CHOOSE A NUMBER:' choice;
 
 if [ $choice == 1 ] ; then
+clear
 git status;
 fi
 
 if [ $choice == 2 ] ; then
+clear
 git add --all
 git status;
 fi
 
 if [ $choice == 3 ] ; then
+clear
 read -p 'Enter commit message: ' msg
 git commit -m "$msg";
 fi
 
 if [ $choice == 4 ] ; then
+clear
 read -p 'remote name:' remote
 read -p 'branch on the remote:' branch
 git push $remote $branch;
 fi
 
 if [ $choice == 5 ] ; then
+clear
 echo "MAKE SURE YOU ARE ON THE BRANCH THAT IS TO BE SYNCHRONIZED"
 read -p 'Upstream remote name:' upstream
 read -p 'current branch:' branch
@@ -50,20 +55,24 @@ git pull $upstream $branch;
 fi
 
 if [ $choice == 6 ] ; then
+clear
 git remote -v;
 fi
 
 if [ $choice == 7 ] ; then
+clear
 read -p 'Enter remote name: ' name
 read -p 'Enter remote url: ' url
 git remote add $name $url;
 fi
 
 if [ $choice == 8 ] ; then
+clear
 git branch;
 fi
 
 if [ $choice == 9 ] ; then
+clear
 git branch
 echo 'above are the branches existing'
 read -p 'Enter branch name to create: ' name
@@ -71,12 +80,14 @@ git branch $name;
 fi
 
 if [ $choice == 10 ] ; then
+clear
 git branch
 read -p 'which branch above do you want to checkout: ' name
 git checkout $name;
 fi
 
 if [ $choice == 11 ] ; then
+clear
 git branch
 read -p 'which branch above do you want to delete: ' name
 git branch -D $name;
