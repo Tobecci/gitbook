@@ -3,8 +3,8 @@
 # A multipurpose script that is easily modified to include other functions
 # Author: sphinx
 # website:www.naijacodex.tk
-
-echo '-------------------------------------------
+menu(){
+    echo '-------------------------------------------
 SELECT AN ITEM FROM THE MENU
 [1]  git status
 [2]  add all files
@@ -23,26 +23,30 @@ read -p 'CHOOSE A NUMBER:' choice;
 
 if [ $choice == 1 ] ; then
 clear
-git status;
+git status
+question;
 fi
 
 if [ $choice == 2 ] ; then
 clear
 git add --all
-git status;
+git status
+question;
 fi
 
 if [ $choice == 3 ] ; then
 clear
 read -p 'Enter commit message: ' msg
-git commit -m "$msg";
+git commit -m "$msg"
+question;
 fi
 
 if [ $choice == 4 ] ; then
 clear
 read -p 'remote name:' remote
 read -p 'branch on the remote:' branch
-git push $remote $branch;
+git push $remote $branch
+question;
 fi
 
 if [ $choice == 5 ] ; then
@@ -52,24 +56,28 @@ git branch
 read -p 'Upstream remote name:' upstream
 read -p 'current branch:' branch
 git fetch $upstream
-git pull $upstream $branch;
+git pull $upstream $branch
+question;
 fi
 
 if [ $choice == 6 ] ; then
 clear
-git remote -v;
+git remote -v
+question;
 fi
 
 if [ $choice == 7 ] ; then
 clear
 read -p 'Enter remote name: ' name
 read -p 'Enter remote url: ' url
-git remote add $name $url;
+git remote add $name $url
+question;
 fi
 
 if [ $choice == 8 ] ; then
 clear
-git branch;
+git branch
+question;
 fi
 
 if [ $choice == 9 ] ; then
@@ -77,19 +85,42 @@ clear
 git branch
 echo 'above are the branches existing'
 read -p 'Enter branch name to create: ' name
-git branch $name;
+git branch $name
+question;
 fi
 
 if [ $choice == 10 ] ; then
 clear
 git branch
 read -p 'which branch above do you want to checkout: ' name
-git checkout $name;
+git checkout $name
+question;
 fi
 
 if [ $choice == 11 ] ; then
 clear
 git branch
 read -p 'which branch above do you want to delete: ' name
-git branch -D $name;
+git branch -D $name
+question;
 fi
+}
+
+question(){
+read -p 'anything else? (y/n): ' choice
+
+if [ $choice == y -o $choice == Y ] ; then
+menu;
+fi
+
+if [ $choice == n  -o $choice == N ] ; then
+echo 'exiting';
+exit
+fi
+
+echo 'option not recognized'
+question
+}
+
+#calls the function defined above
+menu
