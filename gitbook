@@ -26,7 +26,8 @@ git status;
 fi
 
 if [ $choice == 2 ] ; then
-git add --all;
+git add --all
+git status;
 fi
 
 if [ $choice == 3 ] ; then
@@ -35,9 +36,9 @@ git commit -m "$msg";
 fi
 
 if [ $choice == 4 ] ; then
-read -p 'From:' from
-read -p 'To:' to
-git push $to $from;
+read -p 'remote name:' remote
+read -p 'branch on the remote:' branch
+git push $remote $branch;
 fi
 
 if [ $choice == 5 ] ; then
@@ -63,16 +64,20 @@ git branch;
 fi
 
 if [ $choice == 9 ] ; then
+git branch
+echo 'above are the branches existing'
 read -p 'Enter branch name to create: ' name
 git branch $name;
 fi
 
 if [ $choice == 10 ] ; then
-read -p 'Enter branch name to checkout: ' name
+git branch
+read -p 'which branch above do you want to checkout: ' name
 git checkout $name;
 fi
 
 if [ $choice == 11 ] ; then
-read -p 'Enter branch name to delete: ' name
+git branch
+read -p 'which branch above do you want to delete: ' name
 git branch -D $name;
 fi
