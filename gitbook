@@ -54,7 +54,7 @@ clear
 echo "MAKE SURE YOU ARE ON THE BRANCH THAT IS TO BE SYNCHRONIZED"
 git branch
 read -p 'Upstream remote name:' upstream
-read -p 'current branch:' branch
+read -p 'branch to be synchronized with:' branch
 git fetch $upstream
 git pull $upstream $branch
 question;
