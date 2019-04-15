@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# A multipurpose script that is easily modified to include other functions
+# Author: sphinx
+# website:www.naijacodex.tk
+
+echo 'this is a multipurpose script
+[1] git status
+[2] add all files
+[3] commit
+[4] push to repo
+[5] synchronize repository'
+
+read -p 'CHOOSE A NUMBER:' choice;
+
+if [ $choice == 1 ] ; then
+git status;
+fi
+
+if [ $choice == 2 ] ; then
+git add --all;
+fi
+
+if [ $choice == 3 ] ; then
+read -p 'Enter commit message: ' msg
+git commit -m "$msg";
+fi
+
+if [ $choice == 4 ] ; then
+read -p 'From:' from
+read -p 'To:' to
+git push $to $from;
+fi
+
+if [ $choice == 5 ] ; then
+echo "MAKE SURE YOU ARE ON THE BRANCH THAT IS TO BE SYNCHRONIZED"
+read -p 'Upstream remote name:' upstream
+read -p 'current branch:' branch
+git fetch $upstream
+git pull $upstream $branch;
+fi
