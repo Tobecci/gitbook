@@ -132,7 +132,7 @@ echo -e "${RED}exiting${NC}";
 exit
 
 else
-echo 'option not recognized'
+echo -e "${RED}option not recognized${NC}"
 question
 fi
 }
