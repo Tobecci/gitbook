@@ -3,9 +3,14 @@
 # A multipurpose script that is easily modified to include other functions
 # Author: sphinx
 # website:www.naijacodex.tk
+RED='\033[0;31m'
+NC='\033[0m'
+BP='\033[1;35m'
+BY='\033[1;33m'
+
 menu(){
-    echo '-------------------------------------------
-SELECT AN ITEM FROM THE MENU
+    echo -e "-------------------------------------------
+${BP}SELECT AN ITEM FROM THE MENU
 [1]  git status
 [2]  add all files
 [3]  commit
@@ -16,10 +21,10 @@ SELECT AN ITEM FROM THE MENU
 [8]  show branches
 [9]  add a branch
 [10] checkout a branch
-[11] delete a branch
---------------------------------------------'
+[11] delete a branch ${NC}
+--------------------------------------------"
 
-read -p 'CHOOSE A NUMBER:' choice;
+read -p "CHOOSE A NUMBER:" choice;
 
 if [ $choice == 1 ] ; then
 clear
@@ -114,7 +119,7 @@ menu;
 fi
 
 if [ $choice == n  -o $choice == N ] ; then
-echo 'exiting';
+echo -e "${RED}exiting${NC}";
 exit
 fi
 
