@@ -23,8 +23,9 @@ ${BP}SELECT AN ITEM FROM THE MENU
 [10] checkout a branch
 [11] delete a branch ${NC}
 --------------------------------------------"
-
+echo -e "${BY}"
 read -p "CHOOSE A NUMBER:" choice;
+echo -e "${NC}"
 
 if [ $choice == 1 ] ; then
 clear
@@ -112,7 +113,9 @@ fi
 }
 
 question(){
+echo -e "${BY}"
 read -p 'anything else? (y/n): ' choice
+echo -e "${NC}"
 
 if [ $choice == y -o $choice == Y ] ; then
 menu;
