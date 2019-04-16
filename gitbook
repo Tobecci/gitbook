@@ -21,7 +21,10 @@ ${BP}SELECT AN ITEM FROM THE MENU
 [8]  show branches
 [9]  add a branch
 [10] checkout a branch
-[11] delete a branch ${NC}
+[11] delete a branch 
+[12] rename a remote
+[13] remove a remote
+[14] clone a repo${NC}
 --------------------------------------------"
 echo -e "${BY}"
 read -p "CHOOSE A NUMBER:" choice;
@@ -111,7 +114,34 @@ read -p 'which branch above do you want to delete: ' name
 git branch -D $name
 question
 
+elif [ $choice == 12 ]
+then
+clear
+git remote -v
+echo 'your remotes are listed above'
+read -p 'old name: ' old
+read -p 'new name: ' new
+git remote rename $old $new
+question
+
+elif [ $choice == 13 ]
+then
+clear
+git remote -v
+echo 'your remotes are listed above'
+read -p 'name of remote to remove: ' name
+git remote remove $name
+question
+
+elif [ $choice == 14 ]
+then
+clear
+read -p 'enter git url:' url
+git clone $url
+question
+
 else
+clear
 echo -e "${RED}unknown option try again${NC}"
 menu
 fi
