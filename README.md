@@ -23,6 +23,13 @@ this script
 - from now on any bash scripts in the bash_scripts folder will run when you type their name in the terminal
 
 
-### Notice
-* this script only works in a bash terminal
-### 
+## Installation instruction for windows
+
+* clone the repo
+* create a batch_scripts directory
+* copy the gitbook.bat file to the batch_scripts directory
+* copy the directory location i.e C:\Users\yourUserName\batch_scripts
+* add the copied directory to the path variable
+* open a new cmd terminal and type `gitbook`
+
+>I urge you to contribute to this project 
