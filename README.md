@@ -32,4 +32,4 @@ this script
 * add the copied directory to the path variable
 * open a new cmd terminal and type `gitbook`
 
->I urge you to contribute to this project 
+>I urge you to contribute to this project as it is open source
